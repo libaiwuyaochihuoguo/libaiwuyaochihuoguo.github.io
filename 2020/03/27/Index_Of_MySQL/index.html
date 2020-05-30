@@ -88,7 +88,7 @@ function activateLightMode(){
 <li>前缀索引：即取字段值/列名的指定前缀建立索引以节省空间。</li>
 </ol>
 </li>
-<li>组合索引的存储结构：(使用组合索引的最左匹配时，与where后面列的顺序无关，即顺序会被引擎自动优化)<br>e.g.1<br><a href="https://cdn.jsdelivr.net/gh/libaiwuyaochihuoguo/Picture_Go/%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%951.png" target="_blank" rel="noopener" data-fancybox="group" data-caption="组合索引1.png" class="fancybox"><img alt="组合索引1.png" data-src="https://cdn.jsdelivr.net/gh/libaiwuyaochihuoguo/Picture_Go/%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%951.png" class="lazyload" title="组合索引1.png"></a><br>e.g.2<br><a href="https://cdn.jsdelivr.net/gh/libaiwuyaochihuoguo/Picture_Go/%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%952.png" target="_blank" rel="noopener" data-fancybox="group" data-caption="组合索引2.png" class="fancybox"><img alt="组合索引2.png" data-src="https://cdn.jsdelivr.net/gh/libaiwuyaochihuoguo/Picture_Go/%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%952.png" class="lazyload" title="组合索引2.png"></a></li>
+<li>组合索引的存储结构：(使用组合索引的最左匹配时，与where后面列的顺序无关，即顺序会被引擎自动优化)<br>e.g.1<br><a href="https://cdn.jsdelivr.net/gh/libaiwuyaochihuoguo/Picture_Go/%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%951.png" target="_blank" rel="noopener" data-fancybox="group" data-caption="组合索引1.png" class="fancybox"><img alt="组合索引1.png" title="组合索引1.png" data-src="https://cdn.jsdelivr.net/gh/libaiwuyaochihuoguo/Picture_Go/%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%951.png" class="lazyload"></a><br>e.g.2<br><a href="https://cdn.jsdelivr.net/gh/libaiwuyaochihuoguo/Picture_Go/%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%952.png" target="_blank" rel="noopener" data-fancybox="group" data-caption="组合索引2.png" class="fancybox"><img alt="组合索引2.png" title="组合索引2.png" data-src="https://cdn.jsdelivr.net/gh/libaiwuyaochihuoguo/Picture_Go/%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%952.png" class="lazyload"></a></li>
 <li>索引文件的数据结构分类：<ol>
 <li>hash：<ul>
 <li>简介：数组+链表</li>
@@ -118,12 +118,12 @@ function activateLightMode(){
 </ul>
 </li>
 <li>B树：<ul>
-<li>简介：一种多叉树，根据数据key的范围确定该数据所在子树的位置。读取数据的时候根据位置读取需要的存储块/页。<strong>可以理解为从二分查找变成了由范围区间决定的多分查找</strong><br><a href="https://cdn.jsdelivr.net/gh/libaiwuyaochihuoguo/Picture_Go/B_Tree2.png" target="_blank" rel="noopener" data-fancybox="group" data-caption="B_Tree2.png" class="fancybox"><img alt="B_Tree2.png" data-src="https://cdn.jsdelivr.net/gh/libaiwuyaochihuoguo/Picture_Go/B_Tree2.png" class="lazyload" title="B_Tree2.png"></a></li>
+<li>简介：一种多叉树，根据数据key的范围确定该数据所在子树的位置。读取数据的时候根据位置读取需要的存储块/页。<strong>可以理解为从二分查找变成了由范围区间决定的多分查找</strong><br><a href="https://cdn.jsdelivr.net/gh/libaiwuyaochihuoguo/Picture_Go/B_Tree2.png" target="_blank" rel="noopener" data-fancybox="group" data-caption="B_Tree2.png" class="fancybox"><img alt="B_Tree2.png" title="B_Tree2.png" data-src="https://cdn.jsdelivr.net/gh/libaiwuyaochihuoguo/Picture_Go/B_Tree2.png" class="lazyload"></a></li>
 <li>优缺点：优点是相比红黑树相同深度的树能够存储更多的数据。缺点是由于非叶节点中需要存储data数据(图中的黄色区域)，导致整体结构的存储空间没有用在“刀刃上”，同样会随着插入数据的增加，树的深度会增加，从而影响数据读取的效率。</li>
 </ul>
 </li>
 <li>B+树：(MySQl索引使用的数据结构)<ul>
-<li>简介：B树的升级版，非叶节点不再存储data数据。且由于叶节点是一种链式环状结构，所以<strong>既可以从根结点开始进行范围查找，也可以从叶节点开始进行随机查找。</strong><br><a href="https://cdn.jsdelivr.net/gh/libaiwuyaochihuoguo/Picture_Go/B+Tree.png" target="_blank" rel="noopener" data-fancybox="group" data-caption="B+Tree.png" class="fancybox"><img alt="B+Tree.png" data-src="https://cdn.jsdelivr.net/gh/libaiwuyaochihuoguo/Picture_Go/B+Tree.png" class="lazyload" title="B+Tree.png"></a></li>
+<li>简介：B树的升级版，非叶节点不再存储data数据。且由于叶节点是一种链式环状结构，所以<strong>既可以从根结点开始进行范围查找，也可以从叶节点开始进行随机查找。</strong><br><a href="https://cdn.jsdelivr.net/gh/libaiwuyaochihuoguo/Picture_Go/B+Tree.png" target="_blank" rel="noopener" data-fancybox="group" data-caption="B+Tree.png" class="fancybox"><img alt="B+Tree.png" title="B+Tree.png" data-src="https://cdn.jsdelivr.net/gh/libaiwuyaochihuoguo/Picture_Go/B+Tree.png" class="lazyload"></a></li>
 <li>优缺点：相同的深度能存储更多的数据，且支持范围查找也支持随机查找。</li>
 </ul>
 </li>
